@@ -58,13 +58,15 @@ class Person {
     age;
     drivingLicense;
     hobbies;
+    img;
 
-    constructor(fname, lname, age, drivingLicense, hobbies) {
+    constructor(fname, lname, age, drivingLicense, hobbies, img) {
         this.firstName = fname;
         this.lastName = lname;
         this.age = age;
         this.drivingLicense = drivingLicense;
         this.hobbies = hobbies;
+        this.img = img;
 
         people.push(this);
     }
@@ -72,7 +74,7 @@ class Person {
     printInfo() {
         return `
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="${this.img}" class="card-img-top h-70" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${this.firstName}  ${this.lastName}</h5>
                 <p class="card-text">${this.hobbies[0]} ${this.hobbies[1]}</p>
@@ -83,8 +85,8 @@ class Person {
     }
 }
 
-let person1 = new Person("Felix", "B", 45, true, ["Swimming", "Training"]);
-let person4 = new Person("X", "B", 49, true, ["Swimming", "Training"]);
+let person1 = new Person("Felix", "B", 45, true, ["Swimming", "Training"], "images_person/person1.webp");
+let person4 = new Person("X", "B", 49, true, ["Swimming", "Training"], "images_person/person2.webp");
 
 
 
@@ -92,8 +94,8 @@ class Professional extends Person {
     jobposition;
     salary;
 
-    constructor(fname, lname, age, drivingLicense, hobbies, jobposition, salary) {
-        super(fname, lname, age, drivingLicense, hobbies);
+    constructor(fname, lname, age, drivingLicense, hobbies, img, jobposition, salary) {
+        super(fname, lname, age, drivingLicense, hobbies, img);
         // this.firstName = fname;
         // this.lastName = lname;
         // this.age = age;
@@ -108,7 +110,7 @@ class Professional extends Person {
     printInfo() {
         return `
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="${this.img}" class="card-img-top h-70" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${this.jobposition} ${this.firstName}  ${this.lastName}</h5>
                 <p class="card-text">${this.age} ${this.salary}</p>
@@ -119,7 +121,7 @@ class Professional extends Person {
     }
 }
 
-let person5 = new Professional("hans", "berger", 38, false, "swimming", "boss", 4000);
+let person5 = new Professional("hans", "berger", 38, false, "swimming", "images_person/person3.webp", "boss", 4000);
 console.log(people)
 for (let val of people) {
     document.getElementById("demo").innerHTML += val.printInfo();
@@ -191,13 +193,15 @@ class Animal {
     race;
     age;
     carniovore;
+    img;
 
-    constructor(fname, species, age, race, carniovore) {
+    constructor(fname, species, age, race, carniovore, img) {
         this.firstName = fname;
         this.species = species;
         this.age = age;
         this.race = race;
         this.carniovore = carniovore;
+        this.img = img;
 
         Animals.push(this);
     }
@@ -205,7 +209,7 @@ class Animal {
     printInfo() {
         return `
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="${this.img}" class="card-img-top h-70" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${this.firstName}  ${this.species}</h5>
                 <p class="card-text">${this.race} ${this.carniovore}</p>
@@ -216,15 +220,15 @@ class Animal {
     }
 }
 
-let animal4 = new Animal("sam", "fish", 3, "shark", true)
-let animal5 = new Animal("joe", "mammal", 3, "lion", true)
+let animal4 = new Animal("sam", "fish", 3, "shark", true, "images_animals/animal1.webp")
+let animal5 = new Animal("joe", "mammal", 3, "lion", true, "images_animals/animal2.webp")
 
 class Animalextd extends Animal {
     water;
 
 
-    constructor(fname, species, age, race, carniovore, water) {
-        super(fname, species, age, race, carniovore);
+    constructor(fname, species, age, race, carniovore, img, water) {
+        super(fname, species, age, race, carniovore, img);
 
         this.water = water;
 
@@ -233,7 +237,7 @@ class Animalextd extends Animal {
     printInfo() {
         return `
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="${this.img}" class="card-img-top h-70" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${this.water} ${this.firstName}  ${this.species}</h5>
                 <p class="card-text">${this.age} ${this.race}</p>
@@ -244,7 +248,7 @@ class Animalextd extends Animal {
     }
 }
 
-let animal6 = new Animalextd("leo", "lion", 5, "mammal", true, "sweet");
+let animal6 = new Animalextd("leo", "lion", 5, "mammal", true, "images_animals/animal3.webp", "sweet");
 
 
 
@@ -261,12 +265,14 @@ class Car {
     automatic;
     age;
     color;
+    img;
 
-    constructor(brand, automatic, age, color) {
+    constructor(brand, automatic, age, color, img) {
         this.brand = brand;
         this.automatic = automatic;
         this.age = age;
         this.color = color;
+        this.img = img;
 
 
         Cars.push(this);
@@ -275,7 +281,7 @@ class Car {
     printInfo() {
         return `
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="${this.img}" class="card-img-top h-70" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${this.brand}  ${this.automatic}</h5>
                 <p class="card-text">${this.age} ${this.color}</p>
@@ -286,15 +292,15 @@ class Car {
     }
 }
 
-let car4 = new Car("volkswagen", true, 5, "green")
-let car5 = new Car("Audi", false, 3, "black")
+let car4 = new Car("volkswagen", true, 5, "green", "images_car/car1.jpg")
+let car5 = new Car("Audi", false, 3, "black", "images_car/car2.jpg")
 
 class Motorbike extends Car {
     numberWheels;
 
 
-    constructor(brand, automatic, age, color, numberWheels) {
-        super(brand, automatic, age, color);
+    constructor(brand, automatic, age, color, img, numberWheels) {
+        super(brand, automatic, age, color, img);
 
         this.numberWheels = numberWheels;
 
@@ -303,7 +309,7 @@ class Motorbike extends Car {
     printInfo() {
         return `
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="${this.img}" class="card-img-top h-70" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${this.numberWheels} ${this.brand}  ${this.color}</h5>
                 <p class="card-text">${this.age} </p>
@@ -314,7 +320,7 @@ class Motorbike extends Car {
     }
 }
 
-let car6 = new Motorbike("BMW", false, 2, "red", 2);
+let car6 = new Motorbike("BMW", false, 2, "red", "images_car/car3.webp", 2);
 
 
 for (let val of Cars) {
